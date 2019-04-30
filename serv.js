@@ -1,6 +1,5 @@
 
 
-
 // module Express
 var express = require('express');
 // serve param
@@ -14,8 +13,28 @@ var myRouter = express.Router();
 myRouter.route('/')
 // .all (get, put, post, delete)
 .all(function(req, res) {
-	res.json({message : "Bienvenue sur template API ", methode : req.method});
-}
+	res.json({message : "Bienvenue sur mon template API ", methode : req.method});
+});
+
+myRouter.route('/msn')
+.get(function(req, res) {
+	
+	var obj = [{
+		Id: "198",
+		Name: "nicolas",
+		Registration: "15-07-1994",
+		DeliveryDate: "04-28-2019",
+		Model:"fançais"
+	},{
+		Id: "198",
+		Name: "nicolas",
+		Registration: "15-07-1994",
+		DeliveryDate: "04-28-2019",
+		Model:"fançais"
+	}];
+	
+	res.json(JSON.stringify(obj));
+});
 
 app.use(myRouter);
 
